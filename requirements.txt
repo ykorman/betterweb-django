@@ -1,3 +1,8 @@
 Django
 django-registration
 djangorestframework
+django-debug-toolbar
+django-userena
+python-openid
+python-oauth2
+python-social-auth
