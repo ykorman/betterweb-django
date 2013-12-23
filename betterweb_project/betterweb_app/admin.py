@@ -1,3 +1,5 @@
 from django.contrib import admin
+from betterweb_app.models import *
 
-# Register your models here.
+for model in ( Giver, Receiver, Deposit, Withdrawal, Tip, Art, TipToArt ):
+    admin.site.register(model)
