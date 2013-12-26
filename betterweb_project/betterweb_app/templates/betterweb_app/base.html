@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <img src="{% static "betterweb_app/logo.png" %}" alt="Logo" />
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>
