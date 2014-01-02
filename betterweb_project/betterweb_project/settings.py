@@ -82,3 +82,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# this is shit, it should be per app configuration
+# LOGIN_REDIRECT_URL = 

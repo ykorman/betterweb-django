@@ -1,6 +1,10 @@
+from datetime import datetime
+
 from django.shortcuts import render, redirect, render_to_response
 from django.http import HttpResponse
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
+
 from betterweb_app.forms import DepositForm
 
 def index(request):
@@ -16,21 +20,25 @@ def landing(request, username):
     context = {'username': username}
     return render(request, 'betterweb_app/landing.html', context)
 
+@login_required
 def deposit(request, username):
     context = RequestContext(request)
-    print request.POST
     if request.method == 'POST':
         form = DepositForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
+            deposit = form.save(commit=False)
+            deposit.giver = request.user.giver
+            deposit.when = datetime.now()
+            deposit.save()
             return index(request)
         else:
+            print request.POST
             print form.errors
     else:
         form = DepositForm()
         
     return render_to_response('betterweb_app/deposit.html', {'form': form}, context)
-    #return HttpResponse("Hello, %s. You're at the bw deposit." % username)
 
+@login_required
 def withdraw(request, username):
     return HttpResponse("Hello, %s. You're at the bw withdraw." % username)
