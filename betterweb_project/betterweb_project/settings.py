@@ -37,7 +37,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    # django-userena
+    'userena',
+    'guardian',
+    'easy_thumbnails',
+    # local apps
     'betterweb_app',
+    'accounts'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,7 +53,16 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'userena.middleware.UserenaLocaleMiddleware',
 )
+
+AUTHENTICATION_BACKENDS = (
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 ROOT_URLCONF = 'betterweb_project.urls'
 
