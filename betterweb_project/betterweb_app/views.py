@@ -13,7 +13,7 @@ def index(request):
 def register(request):
     return HttpResponse("Hello, world. You're at the bw register.")
 
-def landing(request, username):
+def landing(request):
     print request.user.is_authenticated()
     if not request.user.is_authenticated():
         return redirect('/login/?next=%s' % request.path)
@@ -21,7 +21,7 @@ def landing(request, username):
     return render(request, 'betterweb_app/landing.html', context)
 
 @login_required
-def deposit(request, username):
+def deposit(request):
     context = RequestContext(request)
     if request.method == 'POST':
         form = DepositForm(request.POST)
@@ -40,5 +40,5 @@ def deposit(request, username):
     return render_to_response('betterweb_app/deposit.html', {'form': form}, context)
 
 @login_required
-def withdraw(request, username):
+def withdraw(request):
     return HttpResponse("Hello, %s. You're at the bw withdraw." % username)
