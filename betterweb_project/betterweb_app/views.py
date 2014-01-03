@@ -3,22 +3,22 @@ from datetime import datetime
 from django.shortcuts import render, redirect, render_to_response
 from django.http import HttpResponse
 from django.template import RequestContext
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
 from betterweb_app.forms import DepositForm
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the bw index.")
+    if request.user.is_authenticated() and request.user.username == 'admin':
+        logout(request)
+    if not request.user.is_authenticated():
+        #return redirect('/login/?next=%s' % request.path)
+        return HttpResponse("Hello, world. You're at the bw index.")
+    context = {'username': request.user.username}
+    return render(request, 'betterweb_app/landing.html', context)
 
 def register(request):
     return HttpResponse("Hello, world. You're at the bw register.")
-
-def landing(request):
-    print request.user.is_authenticated()
-    if not request.user.is_authenticated():
-        return redirect('/login/?next=%s' % request.path)
-    context = {'username': username}
-    return render(request, 'betterweb_app/landing.html', context)
 
 @login_required
 def deposit(request):

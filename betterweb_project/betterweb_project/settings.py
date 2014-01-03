@@ -84,4 +84,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # this is shit, it should be per app configuration
-# LOGIN_REDIRECT_URL = 
+LOGIN_REDIRECT_URL = '/bw/'
