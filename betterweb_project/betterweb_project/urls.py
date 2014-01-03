@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^bw/', include('betterweb_app.urls')),
+    url(r'^accounts/', include('userena.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
