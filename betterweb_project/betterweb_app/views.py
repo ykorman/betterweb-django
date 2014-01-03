@@ -28,7 +28,6 @@ def deposit(request):
         if form.is_valid():
             deposit = form.save(commit=False)
             deposit.giver = request.user.giver
-            deposit.when = datetime.now()
             deposit.save()
             return index(request)
         else:
