@@ -11,11 +11,10 @@ from betterweb_app.forms import DepositForm
 def index(request):
     if request.user.is_authenticated() and request.user.username == 'admin':
         logout(request)
-    if not request.user.is_authenticated():
-        #return redirect('/login/?next=%s' % request.path)
-        return HttpResponse("Hello, world. You're at the bw index.")
-    context = {'username': request.user.username}
-    return render(request, 'betterweb_app/landing.html', context)
+    #if not request.user.is_authenticated():
+    #    #return redirect('/login/?next=%s' % request.path)
+    #    return HttpResponse("Hello, world. You're at the bw index.")
+    return render(request, 'betterweb_app/landing.html')
 
 def register(request):
     return HttpResponse("Hello, world. You're at the bw register.")
@@ -35,7 +34,6 @@ def deposit(request):
             print form.errors
     else:
         form = DepositForm()
-        
     return render_to_response('betterweb_app/deposit.html', {'form': form}, context)
 
 @login_required

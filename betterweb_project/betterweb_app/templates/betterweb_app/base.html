@@ -2,10 +2,16 @@
 {% load staticfiles %}
 <html>
     <head>
-        <img src="{% static "betterweb_app/logo.png" %}" alt="Logo" />
         <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link  rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+        {% block style %}{% endblock %}
     </head>
     <body>
+        {% include "betterweb_app/navbar.html" %}
         {% block content %}{% endblock %}
     </body>
 </html>

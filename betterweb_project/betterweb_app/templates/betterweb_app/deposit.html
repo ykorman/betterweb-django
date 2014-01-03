@@ -3,7 +3,7 @@
 {% block title %}Deposit Page{% endblock %}
 
 {% block content %}
-<h1>Hello user {{ username }}</h1>
+<h1>Hello user {{ user.username }}</h1>
 <a href="{% url 'deposit' %}">link to somewhere</a>
 <form id="deposit_form" method="post" action="{% url 'deposit' %}">
     {% csrf_token %}

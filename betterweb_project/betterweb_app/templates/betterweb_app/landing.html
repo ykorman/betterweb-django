@@ -1,7 +1,36 @@
 {% extends "betterweb_app/base.html" %}
 
-{% block title %}Landing Page{% endblock %}
+{% block title %}Better The Web{% endblock %}
 
 {% block content %}
-    <h1>Hello user {{ username }}</h1>
+<div class="jumbotron">
+  <div class="container">
+    <h1><i class="fa fa-globe"></i> Better The Web</h1>
+    <p>Give back for all the good you're given</p>
+    <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>See some statistics</h2>
+      <p>See how people are giving back</p>
+      <p><a class="btn btn-default" href="#">View statistics <i class="fa fa-beer"></i> &raquo;</a></p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Become a giver</h2>
+      <p>Register and help to make the web a better place</p>
+      <p><a class="btn btn-default" href="#">Register <i class="fa fa-users"></i> &raquo;</a></p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Become a receiver</h2>
+      <p>Allow people to thank you for your contribution</p>
+      <p><a class="btn btn-default" href="#">Register <i class="fa fa-globe"></i> &raquo;</a></p>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <p>&copy; Better The Web 2014</p>
+  </footer>
+</div>
 {% endblock %}
