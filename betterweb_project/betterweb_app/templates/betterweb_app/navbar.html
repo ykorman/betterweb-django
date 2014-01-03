@@ -21,7 +21,8 @@
       {% if user.is_authenticated %}
         {% include "betterweb_app/navbar_user.html" %}
       {% else %}
-        {% include "betterweb_app/navbar_login.html" %}
+        {# future feature {% include "betterweb_app/navbar_login.html" %} #}
+        {% include "betterweb_app/navbar_login_redirect.html" %}
       {% endif %}
     </div>
     <!--/.navbar-collapse -->
