@@ -14,10 +14,13 @@ def index(request):
     #if not request.user.is_authenticated():
     #    #return redirect('/login/?next=%s' % request.path)
     #    return HttpResponse("Hello, world. You're at the bw index.")
-    return render(request, 'betterweb_app/landing.html')
+    return render(request, 'betterweb_app/index.html')
 
 def register(request):
     return HttpResponse("Hello, world. You're at the bw register.")
+
+def home(request):
+    return HttpResponse("Hello, world. You're at the bw home.")
 
 @login_required
 def deposit(request):

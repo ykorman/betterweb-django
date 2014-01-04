@@ -1,0 +1,6 @@
+* add template for deposit page
+* add template for signup and signin pages
+* add option to signin from index page (use navbar_login.html template)
+* design home pages for givers and receivers
+* add REST API for submitting tips
+* add page for generating submit tip button
