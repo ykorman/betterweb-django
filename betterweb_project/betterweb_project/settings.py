@@ -108,3 +108,8 @@ LOGOUT_URL = '/accounts/signout/'
 USERENA_SIGNIN_REDIRECT_URL = '/bw/'
 USERENA_SIGNIN_AFTER_SIGNUP = True
 USERENA_ACTIVATION_REQUIRED = False
+
+from django.conf import global_settings
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    'betterweb_app.context_processors.global_vars',
+  )

@@ -1,6 +1,6 @@
 {% extends "betterweb_app/base.html" %}
 
-{% block title %}Better The Web{% endblock %}
+{% block title %}{{ site_name }}{% endblock %}
 
 {% block style %}
 <style type="text/css">
@@ -14,7 +14,7 @@
 {% block content %}
 <div class="jumbotron">
   <div class="container">
-    <h1><i class="fa fa-globe"></i> Better The Web</h1>
+    <h1><i class="fa fa-globe"></i>{{ site_name }}</h1>
     <p>Give back for all the good you're given</p>
     <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
   </div>
@@ -39,7 +39,7 @@
   </div>
   <hr>
   <footer>
-    <p>&copy; Better The Web 2014</p>
+    <p>&copy; {{ site_name }} 2014</p>
   </footer>
 </div>
 {% endblock %}
