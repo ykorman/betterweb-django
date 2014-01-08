@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_extensions.db.fields import UUIDField
 
 class Giver(models.Model):
     user = models.OneToOneField(User)
@@ -16,6 +17,7 @@ class Receiver(models.Model):
     user = models.OneToOneField(User)
     # in cents
     wallet = models.PositiveIntegerField(default=0)
+    uuid = UUIDField(auto=True)
     
     def __unicode__(self):
         return self.user.username
@@ -40,25 +42,20 @@ class Withdrawal(models.Model):
 
 class Tip(models.Model):
     giver = models.ForeignKey(Giver)
-    receiver = models.ForeignKey(Receiver)
+    receiver = models.ForeignKey(Receiver, blank=True, null=True)
     when = models.DateTimeField(auto_now_add=True)
     # in cents
     amount = models.PositiveIntegerField(default=0)
+    link = models.URLField()
     anonymous = models.BooleanField()
     
     def __unicode__(self):
         return u"%s gave %d to %s" % (self.giver.user.username, self.receiver.user.username, amount)
 
-class Art(models.Model):
+class OwnerLink(models.Model):
     owner = models.ForeignKey(Receiver)
     link = models.URLField()
-    
+    uuid = UUIDField(auto=True)
+
     def __unicode__(self):
         return u"%s owns %s" % (self.owner.user.username, self.link)
-
-class TipToArt(models.Model):
-    giver = models.ForeignKey(Giver)
-    link = models.URLField()
-    
-    def __unicode__(self):
-        return u"%s gave to %s" % (self.giver.user.username, self.link)
