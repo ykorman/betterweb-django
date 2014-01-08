@@ -19,8 +19,9 @@ def index(request):
 def register(request):
     return HttpResponse("Hello, world. You're at the bw register.")
 
+@login_required
 def home(request):
-    return HttpResponse("Hello, world. You're at the bw home.")
+    return render(request, 'betterweb_app/home.html')
 
 @login_required
 def deposit(request):

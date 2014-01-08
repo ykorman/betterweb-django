@@ -1,3 +1,6 @@
+* change Art model to OwnerLinks,
+  remove TipToArt model,
+  add Link field to Tip model (and allow empty receiver value)
 * add template for deposit page
 * add template for signup and signin pages
 * add option to signin from index page (use navbar_login.html template)

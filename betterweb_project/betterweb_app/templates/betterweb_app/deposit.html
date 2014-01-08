@@ -1,11 +1,22 @@
 {% extends "betterweb_app/base.html" %}
 
-{% block title %}Deposit Page{% endblock %}
+{% block title %}Deposit Page{% endblock title %}
+
+{% block links %}
+<li>
+  <a href="{% url 'home' %}">Home</a>
+</li>
+<li class="active">
+  <a href="{% url 'deposit' %}">Deposit</a>
+</li>
+{% endblock links %}
 
 {% block content %}
-<h1>Hello user {{ user.username }}</h1>
-<a href="{% url 'deposit' %}">link to somewhere</a>
-<form id="deposit_form" method="post" action="{% url 'deposit' %}">
+<div class="jumbotron">
+</div>
+<div class="container">
+  <h1>Hello user {{ user.username }}</h1>
+  <form id="deposit_form" class="form-group" method="post" action="{% url 'deposit' %}">
     {% csrf_token %}
     
     {% for hidden in form.hidden_fields %}
@@ -17,7 +28,8 @@
     {{ field.help_text}}
     {{ field }}
     {% endfor %}
-
-    <input type="submit" name="submit" value="Deposit" />
-</form>
-{% endblock %}
+    
+    <input type="submit" class="btn btn-primary" name="submit" value="Deposit" />
+  </form>
+</div>
+{% endblock content %}

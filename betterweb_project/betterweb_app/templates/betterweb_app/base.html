@@ -2,7 +2,7 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>{% block title %}{% endblock %}</title>
+        <title>{% block title %}{{ site_name }}{% endblock %}</title>
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
         <link  rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
@@ -11,7 +11,30 @@
         {% block style %}{% endblock %}
     </head>
     <body>
-        {% include "betterweb_app/navbar.html" %}
+      {# cant use include, see http://stackoverflow.com/a/9034429/1189273 {% include "betterweb_app/navbar.html" %} #}
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'index' %}">Better The Web</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              {% block links %}
+              {% endblock links %}
+            </ul>
+            {% if user.is_authenticated %}
+              {% include "betterweb_app/navbar_user.html" %}
+            {% else %}
+              {# future feature {% include "betterweb_app/navbar_login.html" %} #}
+              {% include "betterweb_app/navbar_login_redirect.html" %}
+            {% endif %}
+          </div>
+          <!--/.navbar-collapse -->
+        </div>
+      </div>
         {% block content %}{% endblock %}
     </body>
 </html>
