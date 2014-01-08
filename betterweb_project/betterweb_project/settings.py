@@ -41,6 +41,8 @@ INSTALLED_APPS = (
     'userena',
     'guardian',
     'easy_thumbnails',
+    # django-extensions
+    'django_extensions',
     # local apps
     'betterweb_app',
     'accounts'
