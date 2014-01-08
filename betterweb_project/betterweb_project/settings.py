@@ -105,7 +105,8 @@ AUTH_PROFILE_MODULE = 'accounts.BetterWebProfile'
 LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
-USERENA_SIGNIN_REDIRECT_URL = '/bw/'
+USERENA_SIGNIN_REDIRECT_URL = '/bw/home/'
+USERENA_REDIRECT_ON_SIGNOUT = '/bw/'
 USERENA_SIGNIN_AFTER_SIGNUP = True
 USERENA_ACTIVATION_REQUIRED = False
 
