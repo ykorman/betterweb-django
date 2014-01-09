@@ -32,7 +32,9 @@ def deposit(request):
             deposit = form.save(commit=False)
             deposit.giver = request.user.giver
             deposit.save()
-            return index(request)
+            request.user.giver.balance += deposit.amount
+            request.user.giver.save()
+            return home(request)
         else:
             print request.POST
             print form.errors
