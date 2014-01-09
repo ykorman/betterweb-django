@@ -2,6 +2,15 @@
 
 {% block title %}Home Page{% endblock title %}
 
+{% block links %}
+<li class="active">
+  <a href="{% url 'home' %}">Home</a>
+</li>
+<li>
+  <a href="{% url 'deposit' %}">Deposit</a>
+</li>
+{% endblock links %}
+
 {% block content %}
 
 {% endblock content %}
