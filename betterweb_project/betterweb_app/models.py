@@ -5,7 +5,7 @@ from django_extensions.db.fields import UUIDField
 class Giver(models.Model):
     user = models.OneToOneField(User)
     # in cents
-    wallet = models.PositiveIntegerField(default=0)
+    balance = models.PositiveIntegerField(default=0)
     # how much each "ding" is worth in cents
     ratio = models.PositiveIntegerField(default=5)
     anonymousDefault = models.BooleanField(default=False)
@@ -16,7 +16,7 @@ class Giver(models.Model):
 class Receiver(models.Model):
     user = models.OneToOneField(User)
     # in cents
-    wallet = models.PositiveIntegerField(default=0)
+    balance = models.PositiveIntegerField(default=0)
     uuid = UUIDField(auto=True)
     
     def __unicode__(self):
