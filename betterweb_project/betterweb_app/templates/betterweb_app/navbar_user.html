@@ -1,4 +1,5 @@
 <ul class="nav navbar-nav navbar-right">
   <li><a href="{% url 'home' %}">Welcome, {{ user.username }}</a></li>
+  <li><a href="#">Balance: {{ user.giver.balance }}</a></li>
   <li><a href="{% url 'userena_signout' %}">Logout</a></li>
 </ul>

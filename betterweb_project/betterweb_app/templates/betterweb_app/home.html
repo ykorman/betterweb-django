@@ -2,6 +2,15 @@
 
 {% block title %}Home Page{% endblock title %}
 
+{% block style %}
+<style type="text/css">
+  body { padding-top: 40px; }
+  @media screen and (max-width: 768px) {
+      body { padding-top: 0px; }
+  }
+</style>
+{% endblock style %}
+
 {% block links %}
 <li class="active">
   <a href="{% url 'home' %}">Home</a>
@@ -12,5 +21,9 @@
 {% endblock links %}
 
 {% block content %}
-
+{% if user.receiver.id %}
+<div class="container">
+  <h3>hello receiver, your uuid is {{ user.receiver.uuid }}</h3>
+</div>
+{% endif %}
 {% endblock content %}
