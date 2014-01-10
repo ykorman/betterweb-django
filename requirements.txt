@@ -1,6 +1,8 @@
 Django
 django-registration
 djangorestframework
+markdown
+django-filter
 django-debug-toolbar
 django-userena
 python-openid
