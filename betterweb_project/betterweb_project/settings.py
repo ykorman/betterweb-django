@@ -43,6 +43,8 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     # django-extensions
     'django_extensions',
+    # rest
+    'rest_framework',
     # local apps
     'betterweb_app',
     'accounts'
@@ -116,3 +118,8 @@ from django.conf import global_settings
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'betterweb_app.context_processors.global_vars',
   )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGINATE_BY': 10
+}
