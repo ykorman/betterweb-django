@@ -1,5 +1,9 @@
 <ul class="nav navbar-nav navbar-right">
   <li><a href="{% url 'home' %}">Welcome, {{ user.username }}</a></li>
+  {% if user.giver %}
   <li><a href="#">Balance: {{ user.giver.balance }}</a></li>
+  {% elif user.receiver %}
+  <li><a href="#">Balance: {{ user.receiver.balance }}</a></li>
+  {% endif %}
   <li><a href="{% url 'userena_signout' %}">Logout</a></li>
 </ul>
