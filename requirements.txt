@@ -9,3 +9,4 @@ python-openid
 python-oauth2
 python-social-auth
 django-extensions
+django-cors-headers
