@@ -8,9 +8,11 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from betterweb_app.serializers import UserSerializer, GroupSerializer
+from betterweb_app.serializers import UserSerializer, GroupSerializer, TipSerializer
 
+from betterweb_app.models import Tip
 
+# django rest framework quickstart code 
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -25,6 +27,11 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+# end of quickstart code
+
+class TipViewSet(viewsets.ModelViewSet):
+  queryset = Tip.objects.all()
+  serializer_class = TipSerializer
 
 from betterweb_app.forms import DepositForm
 

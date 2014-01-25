@@ -3,9 +3,12 @@ from rest_framework import routers
 
 from betterweb_app import views
 
+# django rest framework quickstart code 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+# quickstart end
+router.register(r'tips', views.TipViewSet)
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
@@ -14,5 +17,5 @@ urlpatterns = patterns('',
     url(r'^deposit/$', views.deposit, name='deposit'),
     url(r'^withdraw/$', views.withdraw, name='withdraw'),
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')), # django rest framework quickstart
 )

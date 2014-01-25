@@ -50,7 +50,7 @@ class Tip(models.Model):
     anonymous = models.BooleanField()
     
     def __unicode__(self):
-        return u"%s gave %d to %s" % (self.giver.user.username, self.receiver.user.username, amount)
+        return u"%s gave %d to %s" % (self.giver.user.username, self.amount, self.receiver.user.username)
 
 class OwnerLink(models.Model):
     owner = models.ForeignKey(Receiver)

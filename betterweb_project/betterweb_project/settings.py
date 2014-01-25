@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     # django-extensions
     'django_extensions',
     # rest
+    'corsheaders',
     'rest_framework',
     # local apps
     'betterweb_app',
@@ -58,6 +59,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'userena.middleware.UserenaLocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -123,3 +125,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
     'PAGINATE_BY': 10
 }
+
+CORS_ORIGIN_ALLOW_ALL  = True
+CORS_ALLOW_CREDENTIALS = True
