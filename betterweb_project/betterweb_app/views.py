@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
@@ -45,6 +46,11 @@ def index(request):
 
 def register(request):
     return HttpResponse("Hello, world. You're at the bw register.")
+
+@xframe_options_exempt
+def tip(request, receiver_uuid=''):
+    context = RequestContext(request)
+    return render_to_response('betterweb_app/tip_button.html', {'receiver_uuid': receiver_uuid}, context)
 
 @login_required
 def home(request):

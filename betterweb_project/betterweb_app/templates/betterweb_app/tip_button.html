@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <base target="_blank">
+    <style type="text/css">
+      html { 
+        margin: 0;
+        padding: 0;
+        color: #333;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        user-select: none; 
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        visibility: hidden; 
+      }
+      a.btn {
+        visibility: visible;
+      }
+      p {
+        visibility: visible;
+      }
+    </style>
+    <title>{{ site_name }} Tip Button</title>
+  </head>
+  <body>
+    <a class="btn" href="#"><i><img src="{% static "betterweb_app/tip_btn.png" %}" alt="Tip" /></i></a>
+    <p>giver is user {{ user.username }}<p>
+    <p>The uuid of the receiver is {{ receiver_uuid }}</p>
+  </body>
+</html>

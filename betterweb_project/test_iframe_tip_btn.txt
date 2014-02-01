@@ -1,0 +1,14 @@
+To test the "tip" button functionality, you need a seperate web server (a local Linux VM is good enough).
+Create a webpage 'test_tip_iframe.html', with the following content:
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>iframe test</title>
+    </head>
+    <body>
+        <p>Lets see if iframe works as it should...</p>
+        <iframe src="http://kingswood-rails-56843.euw1.nitrousbox.com/bw/tip/ad59c6de-3931-4235-ae98-7029fcf6244b/"></iframe>
+    </body>
+</html>
+---------------------------------------------------------------------------------------------
+Then run "python -m SimpleHTTPServer" in the same folder as the webpage, navigate to the webpage and see if it renders correct.
