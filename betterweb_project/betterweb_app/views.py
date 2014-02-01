@@ -7,33 +7,6 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.clickjacking import xframe_options_exempt
 
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from betterweb_app.serializers import UserSerializer, GroupSerializer, TipSerializer
-
-from betterweb_app.models import Tip
-
-# django rest framework quickstart code 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
-# end of quickstart code
-
-class TipViewSet(viewsets.ModelViewSet):
-  queryset = Tip.objects.all()
-  serializer_class = TipSerializer
-
 from betterweb_app.forms import DepositForm
 
 def index(request):

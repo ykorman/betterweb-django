@@ -44,8 +44,8 @@ INSTALLED_APPS = (
     # django-extensions
     'django_extensions',
     # rest
-    'corsheaders',
-    'rest_framework',
+    #'corsheaders',
+    #'rest_framework',
     # local apps
     'betterweb_app',
     'accounts'
@@ -121,10 +121,10 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'betterweb_app.context_processors.global_vars',
   )
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'PAGINATE_BY': 10
-}
+#REST_FRAMEWORK = {
+#    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+#    'PAGINATE_BY': 10
+#}
 
-CORS_ORIGIN_ALLOW_ALL  = True
-CORS_ALLOW_CREDENTIALS = True
+#CORS_ORIGIN_ALLOW_ALL  = True
+#CORS_ALLOW_CREDENTIALS = True
